@@ -5,10 +5,29 @@ import Home from './components/Home'
 
 export default class App extends React.Component{
 
-  state={
-    isLoggedIn: 'false',
-    user: {}
+  state = {
+
+    user: {
+      id: 0,
+      username: ""
+    },
+    token: ""
   }
+
+  componentDidMount(){
+
+    if (localStorage.token) {
+
+      fetch("http://localhost:4000/persist", {
+        headers: {
+          "Authorization": `bearer ${localStorage.token}`
+        }
+      })
+      .then(r => r.json())
+      .then(this.handleResponse)
+     }
+  }
+  
   render(){
     console.log(this.state)
   return (
