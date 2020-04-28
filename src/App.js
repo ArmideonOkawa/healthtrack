@@ -11,7 +11,18 @@ export default class App extends React.Component{
 
     user: {
       id: 0,
-      username: ""
+      username: "",
+      email: "",
+      goal: "",
+      lifestyle: "",
+      age: "",
+      weight: "",
+      bf_current: "",
+      bf_goal: "",
+      waist: "",
+      arm: "",
+      thigh: "",
+      chest: ""
     },
     token: "",
     isLoggedIn: false
@@ -64,7 +75,18 @@ export default class App extends React.Component{
     this.setState({
       user: {
         id: 0,
-        username: ""
+        username: "",
+        email: "",
+        goal: "",
+        lifestyle: "",
+        age: null,
+        weight: null,
+        bf_current: null,
+        bf_goal: null,
+        waist:null,
+        arm: null,
+        thigh: null,
+        chest: null
       },
       token: ""
     })
@@ -75,14 +97,11 @@ export default class App extends React.Component{
   handleResponse = (resp) => {
     if (!resp.message) {
       localStorage.token = resp.token
-
-
-
-      this.setState({
+        this.setState({
         user: resp.user,
         token: resp.token
       }, () => {
-        this.props.history.push("/profile")
+        this.props.history.push("/overview")
       })
     }
     else {
@@ -95,7 +114,7 @@ export default class App extends React.Component{
   return (
     
     <div className="App">
-      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard  />}
+      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.username} />}
     </div>
   );
 }
