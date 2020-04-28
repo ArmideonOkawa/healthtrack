@@ -12,9 +12,9 @@ export default class MenuExampleSecondary extends React.Component {
     return (
       <Menu secondary>
          <Icon name='home' size='big' />
-           <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
+         <Menu.Item
+          name='analytics'
+          active={activeItem === 'analytics'}
           onClick={this.handleItemClick}
         />
         <Menu.Item
