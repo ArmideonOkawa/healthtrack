@@ -4,14 +4,20 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Dashboard from './components/Dashboard'
+import Footer from './components/Footer/Footer'
+import SignIn from './components/form-components/SignIn';
+import Register from './components/form-components/Register'
+import {withRouter, Redirect} from 'react-router-dom'
+import Overview from './components/Overview'
 
-export default class App extends React.Component{
+class App extends React.Component{
 
   state = {
 
     user: {
       id: 0,
       username: "",
+      password: "",
       email: "",
       goal: "",
       lifestyle: "",
@@ -76,21 +82,24 @@ export default class App extends React.Component{
       user: {
         id: 0,
         username: "",
-        email: "",
-        goal: "",
-        lifestyle: "",
-        age: null,
-        weight: null,
-        bf_current: null,
-        bf_goal: null,
-        waist:null,
-        arm: null,
-        thigh: null,
-        chest: null
+        password: "",
+      email: "",
+      goal: "",
+      lifestyle: "",
+      age: "",
+      weight: "",
+      bf_current: "",
+      bf_goal: "",
+      waist: "",
+      arm: "",
+      thigh: "",
+      chest: ""
       },
-      token: ""
+      token: "",
+      isLoggedIn: false
     })
     localStorage.clear()
+    this.props.history.push("/")
   }
 
 
@@ -99,24 +108,54 @@ export default class App extends React.Component{
       localStorage.token = resp.token
         this.setState({
         user: resp.user,
-        token: resp.token
+        token: resp.token,
+        isLoggedIn: true
       }, () => {
         this.props.history.push("/overview")
       })
     }
-    else {
-      alert(resp.message)
-    }
 
   }
+
+  renderHomePage = (routerProps) => {
+    if(this.state.token){
+      return <SignIn user={this.state.user} token={this.state.token}/>
+    }else {
+      return <Home />
+    }
+  }
+  
+  handleLogIn = (routerProps) => {
+    if(routerProps.location.pathname === '/login'){
+      return <SignIn formName="Sign In" handleSubmit={this.handleLoginSubmit}/>
+    }else if (routerProps.location.pathname === "/register"){
+      return <Register userinfo={this.state.user} formName="Register Form" handleSubmit={this.handleRegisterSubmit}/>
+    }
+  }
+  
+  renderOverview = (routerProps) => {
+    if(routerProps.location.pathname === '/overview'){
+      return <Overview userInfo={this.state}/>
+    }
+  }
   render(){
-    console.log(this.state)
+    // console.log(this.state)
   return (
     
     <div className="App">
-      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.username} />}
+      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.user} logout={this.logSomeonOut}/>}
+   
+    <Switch>
+    <Route exact path='/' render={Home} />
+    <Route exact path='/login' render={this.handleLogIn} />
+    <Route exact path='/register' render={this.handleLogIn} />
+    <Route exact path='/overview' render={Overview}/>  
+    </Switch>
+    
+    <Footer />
     </div>
   );
 }
 }
 
+export default withRouter(App)

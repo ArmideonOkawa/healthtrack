@@ -8,7 +8,7 @@ export default class MenuExampleSecondary extends React.Component {
 
   render() {
     const { activeItem } = this.state
-
+    console.log(this.props)
     return (
       <Menu secondary>
          <Icon name='home' size='big' />
@@ -24,9 +24,14 @@ export default class MenuExampleSecondary extends React.Component {
         />
         <Menu.Menu position='right'>
           <Menu.Item
+            name={this.props.user}
+           
+          />
+
+           <Menu.Item
             name='logout'
             active={activeItem === 'logout'}
-            onClick={this.handleItemClick}
+            onClick={this.props.logout}
           />
         </Menu.Menu>
       </Menu>
