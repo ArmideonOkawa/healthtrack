@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Header,  Message, Segment, Container} from 'semantic-ui-react'
+import { Button, Form, Grid, Header,  Message, Segment} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -28,7 +28,7 @@ export default class SignIn extends Component{
             <div>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
               <Grid.Column style={{ maxWidth: 450 }}>
-                <Header as='h2' color='white' textAlign='center'>
+                <Header as='h2' color='orange' textAlign='center'>
                    Log In 
                 </Header>
                 <Form size='large' onSubmit={this.handleSubmit}>

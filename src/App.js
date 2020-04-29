@@ -1,21 +1,21 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import {  Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Dashboard from './components/Dashboard'
 import Footer from './components/Footer/Footer'
 import SignIn from './components/form-components/SignIn';
 import Register from './components/form-components/Register'
-import {withRouter, Redirect} from 'react-router-dom'
-import Overview from './components/Overview'
+import {withRouter} from 'react-router-dom'
+import Profile from './components/Profile'
+import Nutrition from './components/Nutrition'
 
 class App extends React.Component{
 
   state = {
 
     user: {
-      id: 0,
       username: "",
       password: "",
       email: "",
@@ -135,21 +135,30 @@ class App extends React.Component{
   
   renderOverview = (routerProps) => {
     if(routerProps.location.pathname === '/overview'){
-      return <Overview userInfo={this.state}/>
+      return <Profile userInfo={this.state.user}/>
     }
   }
+
+  renderNutrition = (routerProps) => {
+    if(routerProps.location.pathname === '/nutrition'){
+      return <Nutrition userInfo={this.state.user}/>
+  }
+  }
+
+
   render(){
-    // console.log(this.state)
+    //  console.log(this.state.user.weight)
   return (
     
     <div className="App">
-      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.user} logout={this.logSomeonOut}/>}
+      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.user.username} logout={this.logSomeonOut}/>}
    
     <Switch>
     <Route exact path='/' render={Home} />
     <Route exact path='/login' render={this.handleLogIn} />
     <Route exact path='/register' render={this.handleLogIn} />
-    <Route exact path='/overview' render={Overview}/>  
+    <Route exact path='/overview' render={this.renderOverview}/>  
+    <Route exact path='/nutrition' render={this.renderNutrition} />
     </Switch>
     
     <Footer />
