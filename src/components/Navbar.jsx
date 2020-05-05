@@ -1,6 +1,7 @@
 import React from 'react'
 import { Menu, Icon} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+
 export default class MenuExampleSecondary extends React.Component {
   state = { activeItem: 'home' }
 
@@ -12,16 +13,8 @@ export default class MenuExampleSecondary extends React.Component {
     return (
       <Menu secondary>
          <Icon name='home' size='big' />
-           <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='friends'
-          active={activeItem === 'friends'}
-          onClick={this.handleItemClick}
-        />
+         
+       
         <Menu.Menu position='right'>
          <Link to='/login'><Menu.Item
             name='login'

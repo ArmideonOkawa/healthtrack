@@ -6,7 +6,8 @@ import FatIntake from "./FatIntake";
 
 
 const Profile = (props) => {
-  const { weight, age } = props.user;
+  console.log(props)
+  const { weight, age } = props.userInfo;
   const calorieIntake =
     10 * weight - 5 * age;
   const macros = {

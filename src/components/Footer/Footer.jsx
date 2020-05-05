@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Moment from 'react-moment';
 import './footer.css';
 
 class Footer extends Component {
