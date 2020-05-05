@@ -1,13 +1,11 @@
 import React from "react";
-// import styles from "./css/IntakeCard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBreadSlice } from "@fortawesome/free-solid-svg-icons";
+
 
 const CarbIntake = (props) => {
   return (
     <div className='ctp'>
       <h2>Carb</h2>
-      <FontAwesomeIcon icon={faBreadSlice} />
+     
       
       <span>You need {props.qty}g</span>
       <p>
