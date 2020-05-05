@@ -1,10 +1,16 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button} from 'semantic-ui-react'
 
 const options = [
     {  text: 'Chicken', value: 'chicken' },
     {  text: 'Tuna', value: 'tuna' },
     { text: 'Brown Rice', value: 'brown rice' },
+  ]
+
+  const meals = [
+      {text: 'Breakfast', value: 'breakfast'},
+      {text: 'Lunch', value: 'lunch'},
+      {text: 'snack', value: 'snack'}
   ]
 
   const oz = [
@@ -19,7 +25,7 @@ class Nutrition extends React.Component {
       <h1>Food Log</h1>
       <Form>
         <Form.Group inline>
-        <Form.Input fluid label='First name' placeholder='First name' />
+        <Form.Select fluid label='meal'  options={meals} placeholder='meal' />
         <Form.Select
             fluid
             label='Food'
@@ -33,6 +39,7 @@ class Nutrition extends React.Component {
           placeholder='oz'
           />
         </Form.Group>
+        <Button>Log Food</Button>
       </Form>
       </div>
 

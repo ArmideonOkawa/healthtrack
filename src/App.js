@@ -151,7 +151,7 @@ class App extends React.Component{
   return (
     
     <div className="App">
-      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.user.username} logout={this.logSomeonOut}/>}
+      {!this.state.isLoggedIn ? <Navbar  /> : <Dashboard user={this.state.user} logout={this.logSomeonOut}/>}
    
     <Switch>
     <Route exact path='/' render={Home} />
