@@ -160,7 +160,6 @@ class App extends React.Component{
     <Route exact path='/overview' render={this.renderOverview}/>  
     <Route exact path='/nutrition' render={this.renderNutrition} />
     </Switch>
-    
     <Footer />
     </div>
   );
