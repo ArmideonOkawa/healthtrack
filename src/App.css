@@ -12,6 +12,11 @@ body{
 .main-container{
    margin: auto;
    width: 50%;
-   padding: 10px;
+   height:50%;
+   padding-top: 25%;
     
+}
+
+.title{
+    font-size: 3em;
 }
