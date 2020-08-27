@@ -1,10 +1,22 @@
 .App {
   text-align: center;
-  background-color: #282828;
+  background-color: #0c0c0c;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: bisque;
+  color: #ffffff80;
 }
 
 body{
   background-color: #282828;
+}
+
+.ui.menu .item {
+  color: #ffffff80;
+}
+
+.ui.teal.button {
+  background-color: orange;
+}
+
+.p-card-header img {
+  height: 152.89px;
 }

@@ -28,8 +28,7 @@ export default class MenuExampleSecondary extends React.Component {
           name={this.props.user.username}
            
           />
-
-           <Menu.Item
+          <Menu.Item
             name='logout'
             active={activeItem === 'logout'}
             onClick={this.props.logout}

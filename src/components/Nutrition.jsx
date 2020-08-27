@@ -14,7 +14,7 @@ const options = [
   ]
 
   const oz = [
-      {text: '1'},{text: '2'},{text: '3'},{text: '4'},{text: '5'},{text: '6'},{text: '7'},{text: '8'},{text: '9'},{text: '10'}]
+      {number: 1},{number: 2},{number: 3},{number: 4},{number: 5},{number: 6},{number: 7},{number: 8},{number: 9},{number: 10}]
 class Nutrition extends React.Component {
 
 

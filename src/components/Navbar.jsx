@@ -13,15 +13,21 @@ export default class MenuExampleSecondary extends React.Component {
     return (
       <Menu secondary>
          <Icon name='home' size='big' />
-         
-       
-        <Menu.Menu position='right'>
+         <Menu.Menu position='left'>
+          <Menu.Item
+          name='Site Map'
+          
+        onClick={this.handleItemClick}
+        />
+        </Menu.Menu>
+         <Menu.Menu position='right'>
          <Link to='/login'><Menu.Item
             name='login'
-            active={activeItem === 'login'}
+            
             onClick={this.handleItemClick}
           /></Link>
         </Menu.Menu>
+      
       </Menu>
     )
   }

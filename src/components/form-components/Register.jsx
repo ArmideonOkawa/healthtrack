@@ -39,7 +39,7 @@ export default class Register extends Component{
             <div>
   <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='teal' textAlign='center'>
+      <Header as='h2' color='orange' textAlign='center'>
          Register for a new account
       </Header>
       <Form size='large' onSubmit={this.handleSubmit}>
