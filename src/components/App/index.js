@@ -1,8 +1,16 @@
 import React from 'react';
- 
+import './app.css'
+
 const App = () => (
   <div>
-    <h1>App</h1>
+  <div className='navbar'></div>
+  <div className='main-container'>
+  <h1 id='title'>HealthTrak</h1>
+  <form>
+    <input></input>
+  </form>
+
+  </div>
   </div>
 );
  

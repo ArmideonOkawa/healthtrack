@@ -1,0 +1,10 @@
+#title{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar{
+    height: 75px;
+    background-color: coral;
+}
